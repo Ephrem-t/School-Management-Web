@@ -44,7 +44,16 @@ try:
 except Exception as e:
     print("Firebase init failed:", e)
     # Don't hard-exit here; allows the container to boot for debugging/health checks.
-bucket = storage.bucket()
+    bucket = None
+
+# Ensure we only access the storage bucket if initialization succeeded
+try:
+    # This will raise if firebase wasn't initialized or credentials missing
+    if 'bucket' not in globals() or globals().get('bucket') is None:
+        bucket = storage.bucket()
+except Exception as e:
+    print("Failed to get storage bucket:", e)
+    bucket = None
 
 # ---------------- REFERENCES ---------------- #
 school_admin_ref = db.reference("School_Admins")
@@ -55,6 +64,9 @@ chats_ref = db.reference("Chats")  # Chats node for messages
 # ---------------- FILE UPLOAD ---------------- #
 def upload_file_to_firebase(file, folder=""):
     try:
+        if not globals().get('bucket'):
+            print("Upload skipped: storage bucket not available")
+            return ""
         filename = secure_filename(file.filename)
         unique_name = f"{folder}/{uuid.uuid4().hex}_{filename}"
         blob = bucket.blob(unique_name)
@@ -141,11 +153,7 @@ def register_admin():
     # Profile image if present
     profile_url = ""
     if profile:
-        filename = f"profiles/{profile.filename}"
-        blob = bucket.blob(filename)
-        blob.upload_from_file(profile, content_type=profile.content_type)
-        blob.make_public()
-        profile_url = blob.public_url
+        profile_url = upload_file_to_firebase(profile, folder="profiles")
 
     # ==== Create user (username = adminId by default)
     new_user = users_ref.push()

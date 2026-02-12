@@ -1,0 +1,216 @@
+/* ---------------- DASHBOARD PAGE ---------------- */
+.dashboard-page {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* Top Navbar */
+.top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-search input {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  position: relative;
+  cursor: pointer;
+}
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.notification-dropdown, .messenger-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+.empty-msg {
+  padding: 10px;
+  text-align: center;
+  color: #777;
+}
+.notification-item, .messenger-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.notification-item img, .messenger-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.notification-info p, .messenger-item p {
+  margin: 0;
+  font-size: 12px;
+  color: #555;
+}
+.notification-time {
+  font-size: 10px;
+  color: #888;
+}
+
+/* Sidebar */
+.app-layout {
+  display: flex;
+}
+.google-dashboard {
+  display: flex;
+  width: 100%;
+}
+.google-sidebar {
+  width: 25%;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+.sidebar-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.sidebar-img-circle img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.sidebar-menu .sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #333;
+}
+.sidebar-menu .sidebar-btn.active {
+  background-color: #4b6cb7;
+  color: #fff;
+}
+.logout-btn {
+  background: #e0245e;
+  color: #fff;
+}
+
+/* Main content */
+.google-main {
+  width: 75%;
+  padding: 20px;
+}
+.post-box {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.fb-post-top {
+  display: flex;
+  gap: 10px;
+}
+.fb-post-top img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.fb-post-top textarea {
+  width: 100%;
+  border-radius: 6px;
+  padding: 10px;
+  resize: none;
+}
+.fb-post-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.fb-upload input {
+  display: none;
+}
+.telegram-send-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Posts container */
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.post-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+}
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.post-header .img-circle img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.post-info h4 {
+  margin: 0;
+}
+.post-actions {
+  margin-top: 10px;
+}
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+}
+.like-button.liked span:first-child { color: #e0245e; }
+
