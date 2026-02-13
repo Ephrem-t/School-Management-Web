@@ -65,9 +65,9 @@ function Login() {
 </form>
 
 
-        <p>
+        {/* <p>
           I don’t have an account? <a href="/register">Register</a>
-        </p>
+        </p> */}
       </div>
     </div>
   );
